@@ -1,0 +1,14 @@
+language: node_js
+
+sudo: false
+
+notifications:
+  email:
+    on_failure: always
+    on_success: change
+
+node_js:
+  - '4'
+  - "6"
+
+after_success: npm run coverage
