@@ -1,4 +1,6 @@
 # additween
+[![NPM version][npm-version-image]][npm-url] [![NPM downloads][npm-downloads-image]][npm-url] [![Dependencies][deps-image]][deps-url] [![Dev. Dependencies][dev-deps-image]][dev-deps-url] [![MIT License][license-image]][license-url] [![Build Status][travis-image]][travis-url] [![Coverage][codecov-image]][codecov-url]
+
 Additive tweening implementation for smooth animations.
   
 It combines concurrent animations of the same object into one smooth continuous animation.
@@ -95,3 +97,27 @@ For the other browsers you will need to polyfill `requestAnimationFrame`. [`raf`
 
 ## Thanks
 Thanks to @alexkuz for the [original implementation](https://github.com/alexkuz/additive-animation).
+
+
+## License
+
+MIT (http://www.opensource.org/licenses/mit-license.php)
+
+[deps-image]: https://img.shields.io/david/bhovhannes/additween.svg
+[deps-url]: https://david-dm.org/bhovhannes/additween
+
+[dev-deps-image]: https://img.shields.io/david/dev/bhovhannes/additween.svg
+[dev-deps-url]: https://david-dm.org/bhovhannes/additween#info=devDependencies
+
+[license-image]: http://img.shields.io/badge/license-MIT-blue.svg?style=flat
+[license-url]: LICENSE
+
+[npm-url]: https://www.npmjs.org/package/additween
+[npm-version-image]: https://img.shields.io/npm/v/additween.svg?style=flat
+[npm-downloads-image]: https://img.shields.io/npm/dm/additween.svg?style=flat
+
+[travis-url]: https://travis-ci.org/bhovhannes/additween
+[travis-image]: https://img.shields.io/travis/bhovhannes/additween.svg?style=flat
+
+[codecov-url]: https://codecov.io/gh/bhovhannes/additween
+[codecov-image]: https://img.shields.io/codecov/c/github/bhovhannes/additween.svg
