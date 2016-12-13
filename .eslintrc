@@ -1,0 +1,9 @@
+{
+	"extends": "eslint:recommended",
+    "rules": {
+        "semi": ["error", "never"]
+    },
+	"env": {
+		"commonjs": true
+	}
+}
