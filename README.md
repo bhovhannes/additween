@@ -28,7 +28,7 @@ var mySpan = document.getElementById('mySpan');
 
 function onRender(state) {
   mySpan.style.top = state.top;
-};
+}
 
 var anim = new additween.AdditiveTweening({
   onRender: onRender
