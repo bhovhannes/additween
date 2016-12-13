@@ -21,7 +21,7 @@ Additive animation algorithm is described [here](http://iosoteric.com/additive-a
 
 Let's move the span smooth vertically. Create animation object and provide the options. You need to provide at least **onRender** callback:
 
-```
+```javascript
 var additween = require('additween');
 
 var mySpan = document.getElementById('mySpan');
@@ -37,7 +37,7 @@ var anim = new additween.AdditiveTweening({
 
 Now call **tween** method to start animation:
 
-```
+```javascript
 var fromState = { top: 0 };
 var toState = { top: 1000 };
 var duration = 1000;
@@ -47,7 +47,7 @@ anim.tween(fromState, toState, duration);
 
 To add new animation with another final state, just call it again:
 
-```
+```javascript
 fromState = { top: parseInt(mySpan.style.top) };
 toState = { top: 2000 };
 
