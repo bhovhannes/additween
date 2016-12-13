@@ -4,8 +4,8 @@
   "description": "Additive tweening library for smooth animations",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --colors",
-    "dev": "webpack --colors --watch",
+    "build": "webpack",
+    "dev": "webpack --watch",
     "prepublish": "npm run build",
     "test": "nyc ./node_modules/.bin/_mocha -- test/*.spec.js",
     "cov": "nyc report --reporter=html",
