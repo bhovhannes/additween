@@ -1,6 +1,6 @@
 {
   "name": "additween",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Additive tweening library for smooth animations",
   "main": "index.js",
   "scripts": {
