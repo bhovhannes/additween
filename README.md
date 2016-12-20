@@ -67,6 +67,51 @@ Name | Signature | Description
 **onRender** | `function(state)` | (**required**) a callback for rendering current animation state.
 **onFinish** | `function(finalState)` | Fires after the last animation is completed.
 **onCancel** | `function()` | Fires if animation is canceled.
+**stateReducer** | `IStateReducer` | An object, which provides `clone()` and `reduce()` methods thus implementing `IStateReducer` interface.
+
+##### State reducers
+
+State reducer is an object, which provides `clone()` and `reduce()` methods thus implementing `IStateReducer` interface.
+
+```typescript
+interface IStateReducer<T> {
+    clone: (state: T) => T,
+    reduce: (targetState: T, toState: T, fromState: T, pos: number) => T
+}
+```
+
+`clone()` method is called once per each animation frame in order to get full clone of the target animation state.
+
+`reduce()` method is called at least once per each animation frame in order to get animation state for the given tweening position `pos` - a number from [0,1] interval.  `targetState` - is the current animation state.
+
+If there are more than one tweening processes in progress, `reduce()` will be called once for each tweening process during single animation frame.
+
+The default state reducer is called and exported as `PlainObjectReducer`. Its implementation is below:
+
+```javascript
+var PlainObjectReducer = {
+    clone: function (obj) {
+        var target = {},
+            key
+        for (key in obj) {
+            target[key] = obj[key]
+        }
+        return target
+    },
+
+    reduce: function (targetState, toState, fromState, pos) {
+        var key
+        for (key in targetState) {
+            targetState[key] -= (toState[key] - fromState[key]) * pos
+        }
+        return targetState
+    }
+}
+```
+
+It can be used to animate states which are plain JavaScript objects with numeric values, such as `{ width: 10, height: 20 }`.
+
+
 
 #### anim.tween(fromState, toState, duration, easing)
 

@@ -2,6 +2,8 @@
 'use strict'
 
 var now = require('./now')
+var PlainObjectReducer = require('./PlainObjectReducer')
+
 
 function noop() {}
 
@@ -15,6 +17,7 @@ function AdditiveTweening(options) {
 		currentState = null,
 		animationStack = [],
 		onRender = options.onRender || noop,
+        stateReducer = options.stateReducer || PlainObjectReducer,
 		onFinish = options.onFinish || noop,
 		onCancel = options.onCancel || noop,
 		stepFunc
@@ -34,14 +37,10 @@ function AdditiveTweening(options) {
     }
 
     function getCurrentState(time) {
-        var target = {},
-            animation,
-            remain,
-            key
+        var animation,
+            remain
 
-        for (key in lastTargetState) {
-            target[key] = lastTargetState[key]
-        }
+        var target = stateReducer.clone(lastTargetState)
 
         for (var i = animationStack.length - 1; i >= 0; i--) {
             animation = animationStack[i]
@@ -49,9 +48,7 @@ function AdditiveTweening(options) {
                 continue
             }
             remain = (animation.end - time) / animation.duration
-            for (key in target) {
-                target[key] -= (animation.toState[key] - animation.fromState[key]) * animation.easing(remain)
-            }
+            target = stateReducer.reduce(target, animation.toState, animation.fromState, animation.easing(remain))
         }
 
         return target
