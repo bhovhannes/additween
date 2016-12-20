@@ -8,10 +8,10 @@
     "build": "webpack",
     "dev": "webpack --watch",
     "lint": "eslint --ext .js .",
-    "pretest": "npm run lint",
-    "test-sources": "karma start karma.conf.js",
-    "test-typings": "./node_modules/.bin/_mocha -- test/typings.spec.js",
-    "test": "npm run test-sources && npm run test-typings",
+    "test:lint": "npm run lint",
+    "test:sources": "karma start karma.conf.js",
+    "test:typings": "./node_modules/.bin/_mocha -- test/typings.spec.js",
+    "test": "run-p test:*",
     "coverage": "cat coverage/*/lcov.info | codecov"
   },
   "repository": {
@@ -45,6 +45,7 @@
     "karma-sourcemap-loader": "0.3.7",
     "karma-webpack": "1.8.0",
     "mocha": "3.2.0",
+    "npm-run-all": "3.1.2",
     "phantomjs-prebuilt": "2.1.14",
     "typescript": "2.1.4",
     "typescript-definition-tester": "0.0.5",
