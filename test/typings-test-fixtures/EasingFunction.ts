@@ -1,6 +1,8 @@
 /// <reference path="../../index.d.ts" />
 
-let fakeEasing: additween.EasingFunction
+import {EasingFunction} from '../../index'
+
+let fakeEasing: EasingFunction
 
 fakeEasing = function(a) {
     return a

@@ -132,6 +132,73 @@ Cancels current animation.
 Puts animation into the last state.
  
  
+## Mock
+
+`additween` package provides a separate library which can be used to test animated behavior in a synchronous manner.
+
+That library is included in `additween-mocks.js` which exports a `AdditiveTweeningMock` constructor. It can be used with any testing framework (in the usage example below we use jasmine).
+ 
+```javascript
+import {AdditiveTweening} from 'additween'
+import {AdditiveTweeningMock} from 'additween/dist/additween-mocks'
+ 
+describe('my great app', function() {
+    let additiveTweeningMock = new AdditiveTweeningMock()
+    beforeEach(function () {
+    	additiveTweeningMock = new AdditiveTweeningMock()
+        additiveTweeningMock.install(AdditiveTweening)
+    })
+
+    afterEach(function () {
+        additiveTweeningMock.uninstall(AdditiveTweening)
+    })
+    
+    it('should animate perfectly', function() {
+    	// let's say clicking a button 
+    	// will cause an animation with 2000ms duration
+    	// we assume there is a triggerClick method defined somewhere
+    	let btn = document.getElementById('byButton')
+    	triggerClick(btn)
+    	
+    	// let time go forward by 1000ms
+    	additiveTweeningMock.tick(1000)
+    	
+    	//now we can make assertions about animation state after half of time
+    	//expect(...)
+    	
+    	// let time go forward by another 1000ms
+    	additiveTweeningMock.tick(1000)
+    	
+    	//now we can make assertions about animation final state
+    	//expect(...)
+    })
+})
+```
+
+### Mock API
+
+#### mock = new AdditiveTweeningMock()
+
+Creates a new instance of mocking library.
+
+#### mock.install(AdditiveTweening)
+
+Pass an `AdditiveTweening` constructor in order to let mock patch its animation-related methods.
+ 
+#### mock.uninstall(AdditiveTweening)
+
+Restores original implementation of passed in `AdditiveTweening`.
+ 
+#### mock.tick(duration)
+
+Moves animation clock forward by `duration` msecs. Animation `onRender` callback will be called once after that. If duration is greater or equal than total animation duration, `onFinish` callback also will be called.
+
+#### mock.reset()
+
+Reset animation clock to its initial state.
+
+
+ 
 ## Browser support
 
 This will work for all browsers with `requestAnimationFrame` support (see [here](http://caniuse.com#search=requestAnimationFrame)).

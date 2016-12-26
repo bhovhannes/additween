@@ -5,7 +5,7 @@ import { AdditiveTweening } from '../../index'
 interface FakeAnimState {
 }
 
-let anim: additween.AdditiveTweening<FakeAnimState> = new AdditiveTweening({
+let anim: AdditiveTweening<FakeAnimState> = new AdditiveTweening({
     onRender: function(s) {
         return s
     }

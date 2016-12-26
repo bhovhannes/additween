@@ -19,10 +19,7 @@ function AdditiveTweening(options) {
 		onRender = options.onRender || noop,
         stateReducer = options.stateReducer || PlainObjectReducer,
 		onFinish = options.onFinish || noop,
-		onCancel = options.onCancel || noop,
-		stepFunc
-
-	stepFunc = window.requestAnimationFrame
+		onCancel = options.onCancel || noop
 
 
     function filterOutdatedTargetsFromStack(time) {
@@ -68,14 +65,14 @@ function AdditiveTweening(options) {
             return
         }
 
-        var time = now()
+        var time = this.now()
 
         currentState = getCurrentState(time)
 
         onRender(currentState)
 
         if (hasActiveAnimation(time)) {
-            frame = stepFunc(animationStep)
+            frame = this.scheduleAnimationFrame(animationStep)
         } else {
             this.finish()
         }
@@ -126,7 +123,7 @@ function AdditiveTweening(options) {
      * @param {Function} easing    An easing function. It should take a number from [0,1] range and return a number from [0,1] range.
      */
     this.tween = function(fromState, toState, duration, easing) {
-        var time = now(),
+        var time = this.now(),
             animation
 
         animation = {
@@ -143,8 +140,17 @@ function AdditiveTweening(options) {
 
         lastTargetState = toState
 
-        frame = stepFunc(animationStep)
+        frame = this.scheduleAnimationFrame(animationStep)
     }
 }
+
+AdditiveTweening.prototype.scheduleAnimationFrame = function(cb) {
+    return window.requestAnimationFrame(cb)
+}
+
+AdditiveTweening.prototype.now = function() {
+    return now()
+}
+
 
 module.exports = AdditiveTweening

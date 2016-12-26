@@ -16,7 +16,13 @@ unminifiedConfig.entry = {
     'additween': './index'
 }
 
+var mocksConfig = getBaseWebpackConfig()
+mocksConfig.entry = {
+    'additween-mocks': './index-mocks'
+}
+
 module.exports = [
     minifiedConfig,
-    unminifiedConfig
+    unminifiedConfig,
+    mocksConfig
 ]
