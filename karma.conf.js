@@ -1,8 +1,9 @@
+/* eslint-env es6 */
 'use strict'
 
-var getBaseWebpackConfig = require('./getBaseWebpackConfig')
+const getBaseWebpackConfig = require('./getBaseWebpackConfig')
 
-var webpackConfig = getBaseWebpackConfig()
+const webpackConfig = getBaseWebpackConfig()
 webpackConfig.devtool = 'inline-source-map'
 webpackConfig.module.postLoaders.push({
     test: /\.[tj]sx?$/,
@@ -46,9 +47,6 @@ module.exports = function (config) {
 
         coverageReporter: {
             dir: 'coverage/',
-            // subdir: function (browser) {
-            //     return browser.toLowerCase().split(/[ /-]/)[0] + '-mocha'
-            // },
             reporters: [
                 {type: 'text-summary'},
                 {type: 'lcov'}

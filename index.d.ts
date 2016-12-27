@@ -2,8 +2,6 @@
 // Project: additween
 // Definitions by: Hovhannes Babayan <bhovhannes@gmail.com>
 
-// export as namespace additween;
-
 export type EasingFunction = (t: number) => number
 
 export interface IStateReducer<T> {

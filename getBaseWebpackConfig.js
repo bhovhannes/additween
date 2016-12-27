@@ -1,6 +1,6 @@
-/* eslint-env node */
-var webpack = require('webpack')
-var path = require('path')
+/* eslint-env es6, node */
+const webpack = require('webpack')
+const path = require('path')
 
 function getBaseWebpackConfig() {
     return {

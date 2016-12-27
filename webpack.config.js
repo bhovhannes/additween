@@ -1,9 +1,9 @@
-/* eslint-env node */
-var webpack = require('webpack')
+/* eslint-env es6, node */
+const webpack = require('webpack')
 
-var getBaseWebpackConfig = require('./getBaseWebpackConfig')
+const getBaseWebpackConfig = require('./getBaseWebpackConfig')
 
-var minifiedConfig = getBaseWebpackConfig()
+const minifiedConfig = getBaseWebpackConfig()
 minifiedConfig.plugins.push(new webpack.optimize.UglifyJsPlugin({
     minimize: true
 }))
@@ -11,18 +11,12 @@ minifiedConfig.entry = {
     'additween.min': './index'
 }
 
-var unminifiedConfig = getBaseWebpackConfig()
+const unminifiedConfig = getBaseWebpackConfig()
 unminifiedConfig.entry = {
     'additween': './index'
 }
 
-var mocksConfig = getBaseWebpackConfig()
-mocksConfig.entry = {
-    'additween-mocks': './index-mocks'
-}
-
 module.exports = [
     minifiedConfig,
-    unminifiedConfig,
-    mocksConfig
+    unminifiedConfig
 ]
