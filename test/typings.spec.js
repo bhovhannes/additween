@@ -13,5 +13,5 @@ describe('additween typings', function() {
             },
             done
         )
-    })
+    }, 10000)
 })
