@@ -47,7 +47,7 @@
     "mocha": "3.2.0",
     "npm-run-all": "3.1.2",
     "phantomjs-prebuilt": "2.1.14",
-    "typescript": "2.1.4",
+    "typescript": "2.1.5",
     "typescript-definition-tester": "0.0.5",
     "webpack": "1.14.0"
   }
