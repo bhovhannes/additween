@@ -1,6 +1,0 @@
-webpack.config.js
-getBaseWebpackConfig.js
-karma.conf.js
-coverage/
-src/
-test/

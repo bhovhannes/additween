@@ -2,7 +2,11 @@
   "name": "additween",
   "version": "2.0.0",
   "description": "Additive tweening library for smooth animations",
-  "main": "index.js",
+  "main": "dist/additween.min.js",
+  "files": [
+    "dist/*",
+    "index.d.ts"
+  ],
   "scripts": {
     "prepublish": "npm run build",
     "build": "webpack",
@@ -49,6 +53,6 @@
     "phantomjs-prebuilt": "2.1.14",
     "typescript": "2.1.5",
     "typescript-definition-tester": "0.0.5",
-    "webpack": "1.14.0"
+    "webpack": "2.2.1"
   }
 }

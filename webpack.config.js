@@ -5,7 +5,8 @@ const getBaseWebpackConfig = require('./getBaseWebpackConfig')
 
 const minifiedConfig = getBaseWebpackConfig()
 minifiedConfig.plugins.push(new webpack.optimize.UglifyJsPlugin({
-    minimize: true
+    minimize: true,
+    sourceMap: true
 }))
 minifiedConfig.entry = {
     'additween.min': './index'

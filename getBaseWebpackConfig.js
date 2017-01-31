@@ -1,5 +1,4 @@
 /* eslint-env es6, node */
-const webpack = require('webpack')
 const path = require('path')
 
 function getBaseWebpackConfig() {
@@ -14,17 +13,17 @@ function getBaseWebpackConfig() {
         },
         devtool: 'source-map',
         module: {
-            loaders: [
+            rules: [
                 {
                     test: /\.js$/,
-                    loader: 'eslint-loader',
-                    exclude: /node_modules/
+                    exclude: /node_modules/,
+                    use: [
+                        'eslint-loader'
+                    ]
                 }
             ],
-            postLoaders: []
         },
         plugins: [
-            new webpack.optimize.OccurenceOrderPlugin()
         ]
     }
 }

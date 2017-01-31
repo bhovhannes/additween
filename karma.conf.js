@@ -5,10 +5,14 @@ const getBaseWebpackConfig = require('./getBaseWebpackConfig')
 
 const webpackConfig = getBaseWebpackConfig()
 webpackConfig.devtool = 'inline-source-map'
-webpackConfig.module.postLoaders.push({
+webpackConfig.module.rules = webpackConfig.module.rules || []
+webpackConfig.module.rules.push({
     test: /\.[tj]sx?$/,
-    loader: 'istanbul-instrumenter',
-    exclude: /(browser-test-bundle\.js|\.spec|node_modules|mock|\.mock|\.stub)/
+    enforce: 'post',
+    exclude: /(browser-test-bundle\.js|\.spec|node_modules|mock|\.mock|\.stub)/,
+    use: {
+        loader: 'istanbul-instrumenter-loader'
+    }
 })
 
 module.exports = function (config) {
@@ -32,12 +36,6 @@ module.exports = function (config) {
         },
 
         webpack: webpackConfig,
-        webpackMiddleware: {
-            stats: {
-                chunkModules: false,
-                colors: true
-            }
-        },
 
         // level of logging
         // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
