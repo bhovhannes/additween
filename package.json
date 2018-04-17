@@ -53,7 +53,7 @@
     "phantomjs-prebuilt": "2.1.16",
     "typescript": "2.8.1",
     "typescript-definition-tester": "0.0.5",
-    "webpack": "4.5.0",
+    "webpack": "4.6.0",
     "webpack-cli": "2.0.14"
   }
 }
