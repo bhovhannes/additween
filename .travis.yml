@@ -8,7 +8,6 @@ notifications:
     on_success: change
 
 node_js:
-  - "node"
   - "lts/*"
 
 env:
