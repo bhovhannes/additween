@@ -54,6 +54,6 @@
     "typescript": "3.3.3333",
     "typescript-definition-tester": "0.0.6",
     "webpack": "4.29.6",
-    "webpack-cli": "3.2.3"
+    "webpack-cli": "3.3.0"
   }
 }
