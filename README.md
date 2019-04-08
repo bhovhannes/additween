@@ -172,7 +172,7 @@ MIT (http://www.opensource.org/licenses/mit-license.php)
 [npm-version-image]: https://img.shields.io/npm/v/additween.svg?style=flat
 [npm-downloads-image]: https://img.shields.io/npm/dm/additween.svg?style=flat
 
-[travis-url]: https://travis-ci.org/bhovhannes/additween
+[travis-url]: https://travis-ci.com/bhovhannes/additween
 [travis-image]: https://img.shields.io/travis/bhovhannes/additween.svg?style=flat
 
 [codecov-url]: https://codecov.io/gh/bhovhannes/additween
