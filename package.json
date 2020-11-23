@@ -6,7 +6,7 @@
   "module": "dist/additween.mjs",
   "types": "dist/typings/index.d.ts",
   "files": [
-    "dist/*"
+    "dist"
   ],
   "scripts": {
     "prepublishOnly": "cross-env NODE_ENV=production npm run build",
