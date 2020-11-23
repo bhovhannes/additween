@@ -1,4 +1,4 @@
-export function now(): number {
+export function getCurrentTime(): number {
     if (window.performance && window.performance.now) {
         return window.performance.now();
     }

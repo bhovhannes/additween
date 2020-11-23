@@ -1,4 +1,4 @@
-import { now } from "./now";
+import { getCurrentTime } from "./getCurrentTime";
 import { PlainObjectReducer } from "./PlainObjectReducer";
 import type { IStateReducer } from "./PlainObjectReducer";
 
@@ -100,14 +100,14 @@ export class AdditiveTweening<T extends Record<string, number>> {
                 return;
             }
 
-            const time = now();
+            const time = this.now();
 
             currentState = getCurrentState(time);
 
             onRender(currentState);
 
             if (hasActiveAnimation(time)) {
-                frame = window.requestAnimationFrame(animationStep);
+                frame = this.scheduleAnimationFrame(animationStep);
             } else {
                 this.finish();
             }
@@ -157,7 +157,7 @@ export class AdditiveTweening<T extends Record<string, number>> {
          * @param {Function} easing    An easing function. It should take a number from [0,1] range and return a number from [0,1] range.
          */
         this.tween = function (fromState, toState, duration, easing) {
-            const time = now();
+            const time = this.now();
 
             const animation = {
                 duration: duration,
@@ -174,7 +174,15 @@ export class AdditiveTweening<T extends Record<string, number>> {
 
             lastTargetState = toState;
 
-            frame = window.requestAnimationFrame(animationStep);
+            frame = this.scheduleAnimationFrame(animationStep);
         };
+    }
+
+    scheduleAnimationFrame(cb: () => void): number {
+        return window.requestAnimationFrame(cb);
+    }
+
+    now(): number {
+        return getCurrentTime();
     }
 }
