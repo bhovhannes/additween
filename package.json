@@ -9,7 +9,7 @@
     "dist/*"
   ],
   "scripts": {
-    "_prepublish": "npm run build",
+    "prepublishOnly": "cross-env NODE_ENV=production npm run build",
     "clean": "rimraf dist",
     "build": "run-s build:*",
     "build:minified": "cross-env NODE_ENV=production rollup --config",
