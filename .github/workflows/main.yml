@@ -12,8 +12,7 @@ jobs:
           node-version: 14.x
       - run: npm ci
       - run: npm test -- --ci
-      - run: ls
-      - run: cat ./coverage/*/lcov.info | codecov
+      - run: cat ./coverage/lcov.info | codecov
   lint:
     runs-on: ubuntu-latest
     steps:
