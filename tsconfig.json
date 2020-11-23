@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "es2018",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "lib": ["es2018", "dom"],
+    "sourceMap": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "isolatedModules": true
+  },
+  "compileOnSave": false,
+  "buildOnSave": false,
+  "exclude": ["**/node_modules", "**/dist", "**/.*/"]
+}
