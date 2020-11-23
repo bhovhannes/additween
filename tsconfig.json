@@ -7,8 +7,7 @@
     "sourceMap": true,
     "strict": true,
     "esModuleInterop": true,
-    "isolatedModules": true,
-    "declarationDir": "dist/typings"
+    "isolatedModules": true
   },
   "compileOnSave": false,
   "buildOnSave": false,
