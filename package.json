@@ -18,8 +18,7 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "format": "prettier --write '**/*.{ts,tsx,js,jsx,css,md,yml}'",
-    "test": "jest --coverage",
-    "coverage": "cat coverage/*/lcov.info | codecov"
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",
