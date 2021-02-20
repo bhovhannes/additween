@@ -45,6 +45,7 @@
     "@babel/preset-env": "7.12.16",
     "@babel/preset-typescript": "7.12.16",
     "@babel/runtime": "7.12.13",
+    "@bhovhannes/shared-config": "0.0.1",
     "@jest/globals": "26.6.2",
     "@rollup/plugin-babel": "5.2.3",
     "@rollup/plugin-commonjs": "17.1.0",
