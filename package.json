@@ -43,7 +43,7 @@
     "@babel/plugin-transform-runtime": "7.16.0",
     "@babel/preset-env": "7.16.0",
     "@babel/preset-typescript": "7.16.0",
-    "@babel/runtime": "7.16.0",
+    "@babel/runtime": "7.16.3",
     "@bhovhannes/shared-config": "0.0.1",
     "@jest/globals": "27.3.1",
     "@rollup/plugin-babel": "5.3.0",
