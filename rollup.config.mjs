@@ -3,7 +3,8 @@ import commonjs from "@rollup/plugin-commonjs";
 import nodeResolve from "@rollup/plugin-node-resolve";
 import { terser } from "rollup-plugin-terser";
 
-import pkg from "./package.json";
+import {createRequire} from 'node:module'
+const pkg = createRequire(import.meta.url)('./package.json')
 
 const isProduction = process.env.NODE_ENV === "production";
 
