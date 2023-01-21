@@ -47,7 +47,7 @@
     "@bhovhannes/shared-config": "0.0.1",
     "@jest/globals": "29.3.1",
     "@rollup/plugin-babel": "6.0.3",
-    "@rollup/plugin-commonjs": "24.0.0",
+    "@rollup/plugin-commonjs": "24.0.1",
     "@rollup/plugin-node-resolve": "15.0.1",
     "@typescript-eslint/eslint-plugin": "5.48.1",
     "@typescript-eslint/parser": "5.48.1",
