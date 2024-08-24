@@ -38,7 +38,7 @@
   },
   "homepage": "https://github.com/bhovhannes/additween#readme",
   "devDependencies": {
-    "@evilmartians/lefthook": "1.7.13",
+    "@evilmartians/lefthook": "1.7.14",
     "@babel/core": "7.25.2",
     "@babel/plugin-transform-runtime": "7.24.7",
     "@babel/preset-env": "7.25.3",
