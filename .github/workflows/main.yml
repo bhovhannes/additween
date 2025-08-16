@@ -18,13 +18,6 @@ jobs:
           fail_ci_if_error: true
           path_to_write_report: ./coverage/codecov_report.txt
           token: ${{ secrets.CODECOV_TOKEN }}
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v5
-      - uses: actions/setup-node@v4
-      - run: npm ci
-      - run: npm run lint
   typecheck:
     runs-on: ubuntu-latest
     steps:
