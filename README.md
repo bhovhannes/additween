@@ -27,36 +27,36 @@ Additive animation algorithm is described [here](http://iosoteric.com/additive-a
 Let's move the span smooth vertically. Create animation object and provide the options. You need to provide at least **onRender** callback:
 
 ```javascript
-var additween = require("additween");
+var additween = require('additween')
 
-var mySpan = document.getElementById("mySpan");
+var mySpan = document.getElementById('mySpan')
 
 function onRender(state) {
-  mySpan.style.top = state.top;
+  mySpan.style.top = state.top
 }
 
 var anim = new additween.AdditiveTweening({
-  onRender: onRender,
-});
+  onRender: onRender
+})
 ```
 
 Now call **tween** method to start animation:
 
 ```javascript
-var fromState = { top: 0 };
-var toState = { top: 1000 };
-var duration = 1000;
+var fromState = { top: 0 }
+var toState = { top: 1000 }
+var duration = 1000
 
-anim.tween(fromState, toState, duration);
+anim.tween(fromState, toState, duration)
 ```
 
 To add new animation with another final state, just call it again:
 
 ```javascript
-fromState = { top: parseInt(mySpan.style.top) };
-toState = { top: 2000 };
+fromState = { top: parseInt(mySpan.style.top) }
+toState = { top: 2000 }
 
-anim.tween(fromState, toState, duration);
+anim.tween(fromState, toState, duration)
 ```
 
 ## API
@@ -78,8 +78,8 @@ State reducer is an object, which provides `clone()` and `reduce()` methods thus
 
 ```typescript
 interface IStateReducer<T> {
-  clone: (state: T) => T;
-  reduce: (targetState: T, toState: T, fromState: T, pos: number) => T;
+  clone: (state: T) => T
+  reduce: (targetState: T, toState: T, fromState: T, pos: number) => T
 }
 ```
 
@@ -95,21 +95,21 @@ The default state reducer is called and exported as `PlainObjectReducer`. Its im
 var PlainObjectReducer = {
   clone: function (obj) {
     var target = {},
-      key;
+      key
     for (key in obj) {
-      target[key] = obj[key];
+      target[key] = obj[key]
     }
-    return target;
+    return target
   },
 
   reduce: function (targetState, toState, fromState, pos) {
-    var key;
+    var key
     for (key in targetState) {
-      targetState[key] -= (toState[key] - fromState[key]) * pos;
+      targetState[key] -= (toState[key] - fromState[key]) * pos
     }
-    return targetState;
-  },
-};
+    return targetState
+  }
+}
 ```
 
 It can be used to animate states which are plain JavaScript objects with numeric values, such as `{ width: 10, height: 20 }`.
